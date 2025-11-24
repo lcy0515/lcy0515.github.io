@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posters | lcy0515</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style> body { font-family: 'Noto Sans KR', sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-slate-800 hover:text-blue-600 transition-colors">lcy0515</a>
+                </div>
+                <div class="flex space-x-6 sm:space-x-8 items-center">
+                    <a href="index.html" class="text-slate-500 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-slate-500 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors">About</a>
+                    <!-- 현재 페이지(Posters) 강조 -->
+                    <a href="posters.html" class="text-blue-600 border-b-2 border-blue-600 font-bold px-2 py-2 text-sm transition-colors">Posters</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <h2 class="text-3xl font-bold border-b-2 border-slate-200 pb-4 mb-8">Paper Review & Posters</h2>
+        <p class="text-slate-600 mb-8">제가 읽고 정리한 논문들의 핵심 내용과 포스터를 모아둔 공간입니다.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- 논문 1 -->
+            <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col group">
+                <div class="h-48 bg-slate-100 flex items-center justify-center relative">
+                    <!-- 아이콘 대신 <img> 태그로 교체 가능 -->
+                    <i class="fas fa-file-alt text-6xl text-slate-300 group-hover:scale-110 transition-transform duration-300"></i>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded">NLP</span>
+                        <span class="text-slate-400 text-xs">NeurIPS 2017</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Attention Is All You Need</h3>
+                    <p class="text-slate-600 text-sm mb-4 flex-grow line-clamp-3">
+                        Transformer 아키텍처를 처음 제안한 논문입니다. RNN과 CNN 없이 Attention 메커니즘만으로 SOTA를 달성했습니다.
+                    </p>
+                    <a href="#" class="text-blue-600 font-medium text-sm inline-flex items-center mt-auto hover:underline">
+                        Read Summary <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- 논문 2 -->
+            <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col group">
+                <div class="h-48 bg-slate-100 flex items-center justify-center relative">
+                    <i class="fas fa-image text-6xl text-slate-300 group-hover:scale-110 transition-transform duration-300"></i>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded">CV</span>
+                        <span class="text-slate-400 text-xs">CVPR 2016</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Deep Residual Learning (ResNet)</h3>
+                    <p class="text-slate-600 text-sm mb-4 flex-grow line-clamp-3">
+                        Skip Connection을 도입하여 딥러닝 모델의 층이 깊어질 때 발생하는 Gradient Vanishing 문제를 해결했습니다.
+                    </p>
+                    <a href="#" class="text-blue-600 font-medium text-sm inline-flex items-center mt-auto hover:underline">
+                        Read Summary <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- 여기에 새로운 논문 카드를 복사해서 추가하세요 -->
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 mt-auto text-center text-slate-500 text-sm">
+        &copy; 2024 lcy0515. All rights reserved.
+    </footer>
+</body>
+</html>
