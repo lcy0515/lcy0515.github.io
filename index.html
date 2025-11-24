@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | lcy0515</title>
-    <!-- 스타일 및 폰트 -->
+    <!-- Tailwind CSS (스타일링 도구) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 폰트 및 아이콘 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style> body { font-family: 'Noto Sans KR', sans-serif; } </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- 네비게이션 (메뉴) -->
+    <!-- 네비게이션 바 -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -29,7 +30,7 @@
         </div>
     </nav>
 
-    <!-- 메인 내용 -->
+    <!-- 메인 컨텐츠 -->
     <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex items-center justify-center">
         <section class="text-center py-10 sm:py-20">
             <!-- 프로필 사진 -->
@@ -37,14 +38,14 @@
                 <img src="https://api.dicebear.com/9.x/notionists/svg?seed=lcy0515" alt="Profile" class="w-full h-full object-cover">
             </div>
             
-            <!-- 소개 문구 -->
+            <!-- 소개 멘트 -->
             <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">안녕하세요, <span class="text-blue-600">lcy0515</span>입니다.</h1>
             <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
                 데이터와 인공지능을 탐구하는 개발자입니다.<br class="hidden sm:block">
                 끊임없이 배우고 기록하며 성장하고 있습니다.
             </p>
             
-            <!-- 소셜 링크 아이콘 -->
+            <!-- 소셜 링크 -->
             <div class="flex justify-center space-x-6">
                 <a href="https://github.com/lcy0515" target="_blank" class="text-slate-500 hover:text-black text-3xl transition-transform hover:scale-110">
                     <i class="fab fa-github"></i>
@@ -56,10 +57,8 @@
         </section>
     </main>
 
-    <!-- 푸터 -->
     <footer class="bg-white border-t border-slate-200 py-8 mt-auto text-center text-slate-500 text-sm">
         &copy; 2024 lcy0515. All rights reserved.
     </footer>
-
 </body>
 </html>
