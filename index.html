@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | lcy0515</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style> body { font-family: 'Noto Sans KR', sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-slate-800 hover:text-blue-600 transition-colors">lcy0515</a>
+                </div>
+                <div class="flex space-x-6 sm:space-x-8 items-center">
+                    <a href="index.html" class="text-slate-500 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors">Home</a>
+                    <!-- 현재 페이지(About) 강조 -->
+                    <a href="about.html" class="text-blue-600 border-b-2 border-blue-600 font-bold px-2 py-2 text-sm transition-colors">About</a>
+                    <a href="posters.html" class="text-slate-500 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors">Posters</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold border-b-2 border-slate-200 pb-4 mb-8">About Me</h2>
+            
+            <!-- 소개 -->
+            <div class="mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
+                    <i class="fas fa-user-circle mr-2 text-blue-600 w-6"></i>Introduction
+                </h3>
+                <p class="text-slate-600 leading-relaxed pl-8">
+                    안녕하세요! 저는 컴퓨터 공학을 전공하고 있으며, 특히 딥러닝과 자연어 처리(NLP) 분야에 깊은 관심을 가지고 있습니다.
+                    최신 논문을 읽고 구현해보는 것을 즐기며, 기술을 통해 실질적인 문제를 해결하는 것에 가치를 둡니다.
+                </p>
+            </div>
+
+            <!-- 학력 -->
+            <div class="mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <i class="fas fa-graduation-cap mr-2 text-blue-600 w-6"></i>Education
+                </h3>
+                <div class="border-l-4 border-blue-100 pl-4 ml-2 space-y-6">
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                            <h4 class="text-lg font-semibold text-slate-900">OO 대학교 (University)</h4>
+                            <span class="text-sm text-slate-500">20XX.03 - 현재</span>
+                        </div>
+                        <p class="text-slate-700">컴퓨터공학 학사</p>
+                        <p class="text-slate-500 text-sm mt-1">- GPA: 4.0 / 4.5</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 기술 스택 -->
+            <div class="mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <i class="fas fa-code mr-2 text-blue-600 w-6"></i>Skills
+                </h3>
+                <div class="pl-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                        <h4 class="font-semibold mb-2 text-slate-700">Languages</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">C++</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                        <h4 class="font-semibold mb-2 text-slate-700">Tools & Frameworks</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">PyTorch</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">Git</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 경력 -->
+             <div class="mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <i class="fas fa-briefcase mr-2 text-blue-600 w-6"></i>Experience
+                </h3>
+                <div class="pl-2 space-y-4">
+                    <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
+                        <div class="flex flex-col sm:flex-row justify-between mb-2">
+                            <h4 class="text-lg font-bold text-slate-800">개인 포트폴리오 웹사이트 개발</h4>
+                            <span class="text-sm text-slate-500">2023.10 - 2023.11</span>
+                        </div>
+                        <p class="text-slate-600 text-sm">
+                            - GitHub Pages를 활용한 정적 웹사이트 호스팅 및 배포<br>
+                            - Tailwind CSS를 활용한 반응형 UI 디자인
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 mt-auto text-center text-slate-500 text-sm">
+        &copy; 2024 lcy0515. All rights reserved.
+    </footer>
+</body>
+</html>
