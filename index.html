@@ -3,62 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | ChonYong Lee</title>
-    <!-- Tailwind CSS (스타일링 도구) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 폰트 및 아이콘 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style> body { font-family: 'Noto Sans KR', sans-serif; } </style>
+    <meta name="description" content="이찬용의 소개와 연구. 스토리지 시스템, 운영체제, ZNS SSD, FDP 및 Linux I/O 성능 분석을 연구합니다.">
+    <title>ChanYong Lee | 이찬용</title>
+    <link rel="canonical" href="https://lcy0515.github.io/">
+    <style>
+        :root {
+            color-scheme: light;
+            --background: #f8fafc;
+            --text: #172538;
+            --muted: #526176;
+            --accent: #2563eb;
+            --line: #dce3ec;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        a:hover { color: var(--accent); }
+        a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 3px; }
+        .container { width: min(100% - 64px, 960px); margin-inline: auto; }
+        .skip-link { position: absolute; top: -80px; left: 16px; z-index: 20; padding: 8px 16px; background: white; }
+        .skip-link:focus { top: 12px; }
+        .site-header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--line); }
+        .header-inner { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+        .brand { font-size: 19px; font-weight: 700; letter-spacing: -.5px; }
+        .navigation { display: flex; gap: 28px; color: var(--muted); font-size: 14px; font-weight: 500; }
+        .navigation a { display: inline-flex; align-items: center; min-height: 44px; }
+        main { padding-top: 60px; }
+        .profile { display: grid; grid-template-columns: minmax(0, 1fr) 164px; gap: 64px; align-items: center; padding-bottom: 48px; }
+        .eyebrow { margin: 0 0 12px; color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: .06em; }
+        h1 { margin: 0 0 6px; font-size: 36px; line-height: 1.3; letter-spacing: -1px; }
+        .english-name { margin: 0 0 20px; color: var(--muted); font-size: 18px; }
+        .introduction { margin: 0; max-width: 620px; color: var(--muted); word-break: keep-all; }
+        .profile-photo { display: block; width: 164px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+        .contact-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; font-size: 14px; }
+        .contact-links a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; }
+        .contact-links svg { width: 17px; height: 17px; flex-shrink: 0; }
+        .content-section { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 40px; padding: 34px 0; border-top: 1px solid var(--line); }
+        h2 { margin: 0; font-size: 19px; line-height: 1.65; letter-spacing: -.3px; }
+        h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.65; }
+        .education-list, .research-list { margin: 0; padding: 0; list-style: none; }
+        .education-list { display: grid; gap: 24px; }
+        .education-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 20px; }
+        .university-en { font-weight: 400; font-size: 14px; color: var(--muted); }
+        .period, .detail, .publication-meta { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
+        .period { white-space: nowrap; }
+        .research-list li + li { margin-top: 24px; }
+        .paper-link { text-decoration-line: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .15s, text-decoration-color .15s; }
+        .paper-link:hover { text-decoration-color: currentColor; }
+        .paper-name { color: var(--accent); }
+        .publication-meta { margin-top: 6px; }
+        .publication-award { color: var(--accent); }
+        .skill-group + .skill-group { margin-top: 12px; }
+        .skill-group { display: flex; gap: 12px 20px; align-items: baseline; flex-wrap: wrap; }
+        .skill-label { width: 85px; font-size: 13px; color: var(--muted); }
+        .skills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+        .skills li { padding: 2px 10px; border: 1px solid var(--line); border-radius: 4px; background: #fff; font-size: 13px; }
+        .site-footer { border-top: 1px solid var(--line); padding: 22px 0 32px; color: var(--muted); font-size: 12px; }
+        .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
+        @media (max-width: 680px) {
+            .container { width: calc(100% - 40px); }
+            .header-inner { min-height: 64px; gap: 12px; }
+            .brand { font-size: 17px; }
+            .navigation { gap: 18px; font-size: 13px; }
+            main { padding-top: 36px; }
+            .profile { grid-template-columns: minmax(0, 1fr) 112px; gap: 22px; align-items: start; padding-bottom: 32px; }
+            .profile-copy { display: contents; }
+            .profile-identity { align-self: center; }
+            .eyebrow { font-size: 11px; letter-spacing: 0; margin-bottom: 10px; }
+            h1 { font-size: 30px; }
+            .english-name { font-size: 15px; margin-bottom: 0; }
+            .profile-photo { grid-column: 2; grid-row: 1; width: 112px; }
+            .profile-description { grid-column: 1 / -1; }
+            .introduction { font-size: 15px; }
+            .contact-links { margin-top: 12px; }
+            .content-section { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+            h2 { font-size: 18px; }
+            .education-heading { display: block; }
+            .university-en { display: block; }
+            .period { margin-top: 4px; font-size: 13px; }
+            .research-list h3 { font-size: 15px; }
+            .publication-meta { font-size: 13px; }
+            .skill-group { gap: 6px; }
+            .skill-label { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .paper-link { transition: none; }
+        }
+        @media print {
+            body { background: #fff; font-size: 11pt; }
+            .container { width: 100%; }
+            .site-header, .skip-link, .site-footer { display: none; }
+            main { padding-top: 0; }
+            .profile { padding-bottom: 24px; }
+            .content-section { padding: 20px 0; }
+            .research-list li, .education-list li { break-inside: avoid; }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
-
-    <!-- 네비게이션 바 -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold text-slate-800 hover:text-blue-600 transition-colors">ChanYong Lee</a>
-                </div>
-                <div class="flex space-x-6 sm:space-x-8 items-center">
-                    <!-- Home 버튼 파란색 활성화 -->
-                    <a href="index.html" class="text-blue-600 border-b-2 border-blue-600 font-bold px-2 py-2 text-sm transition-colors">Home</a>
-                    <a href="about.html" class="text-slate-500 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors">About</a>
-                    <a href="posters.html" class="text-slate-500 hover:text-blue-600 px-2 py-2 text-sm font-medium transition-colors">Posters</a>
-                </div>
-            </div>
+<body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#home">ChanYong Lee</a>
+            <nav class="navigation" aria-label="주요 메뉴">
+                <a href="#home">Home</a>
+                <a href="#research">Research</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- 메인 컨텐츠 -->
-    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex items-center justify-center">
-        <section class="text-center py-10 sm:py-20">
-            <!-- 프로필 사진 -->
-            <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full bg-slate-200 mb-6 overflow-hidden shadow-lg border-4 border-white">
-                <img src="profile.jpg" alt="Profile" class="w-full h-full object-cover object-top">
+    <main class="container" id="main">
+        <!-- 소개와 사진: profile.jpg를 교체하면 사진을 변경할 수 있습니다. -->
+        <section class="profile" id="home" aria-labelledby="profile-name">
+            <div class="profile-copy">
+                <div class="profile-identity">
+                    <p class="eyebrow" lang="en">Storage Systems &amp; Operating Systems</p>
+                    <h1 id="profile-name">이찬용</h1>
+                    <p class="english-name" lang="en">ChanYong Lee</p>
+                </div>
+                <div class="profile-description">
+                    <p class="introduction">
+                        스토리지 시스템과 운영체제를 연구하고 있습니다.
+                        SSD의 내부 구조와 데이터 배치, Linux I/O 스택의 성능을 분석하고 개선하는 데 관심이 있습니다.
+                    </p>
+                    <div class="contact-links">
+                        <a href="https://github.com/lcy0515" target="_blank" rel="noopener noreferrer" aria-label="GitHub (새 창)">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.924c.563.104.77-.244.77-.542 0-.267-.01-.974-.015-1.912-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.699.078-.685.078-.685 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.637 1.224 3.28.936.103-.727.393-1.224.715-1.505-2.499-.284-5.126-1.25-5.126-5.564 0-1.23.44-2.233 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.302 3.094 1.153a10.78 10.78 0 0 1 5.626 0c2.148-1.455 3.091-1.154 3.091-1.154.615 1.55.228 2.696.112 2.98.722.788 1.158 1.792 1.158 3.02 0 4.326-2.63 5.277-5.136 5.556.404.35.765 1.043.765 2.1 0 1.516-.014 2.74-.014 3.111 0 .3.203.651.774.54A11.25 11.25 0 0 0 12 .75Z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="mailto:chanyong05151@gmail.com">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
             </div>
-            
-            <!-- 소개 멘트 -->
-            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">안녕하세요, <span class="text-blue-600">이찬용</span>입니다.</h1>
-            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-                차세대 스토리지 시스템과 운영체제를 탐구하는 개발자입니다.<br class="hidden sm:block">
-                끊임없이 배우고 기록하며 성장하고 있습니다.
-            </p>
-            
-            <!-- 소셜 링크 -->
-            <div class="flex justify-center space-x-6">
-                <a href="https://github.com/lcy0515" target="_blank" class="text-slate-500 hover:text-black text-3xl transition-transform hover:scale-110">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:chanyong05151@gmail.com" class="text-slate-500 hover:text-blue-600 text-3xl transition-transform hover:scale-110">
-                    <i class="fas fa-envelope"></i>
-                </a>
+            <img class="profile-photo" src="profile.jpg" alt="이찬용 프로필 사진" width="413" height="531" fetchpriority="high">
+        </section>
+
+        <section class="content-section" id="experience" aria-labelledby="experience-title">
+            <h2 id="experience-title">Experience</h2>
+            <ul class="education-list">
+                <li>
+                    <div class="education-heading">
+                        <h3 lang="en">FADU</h3>
+                        <p class="period">2026.11 – 현재</p>
+                    </div>
+                    <p class="detail" lang="en">Firmware Engineer</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="content-section" id="education" aria-labelledby="education-title">
+            <h2 id="education-title">Education</h2>
+            <ul class="education-list">
+                <li>
+                    <div class="education-heading">
+                        <h3>동국대학교 <span class="university-en" lang="en">Dongguk University</span></h3>
+                        <p class="period">2025.03 – 2027.02 (졸업 예정)</p>
+                    </div>
+                    <p class="detail">컴퓨터공학 석사과정</p>
+                </li>
+                <li>
+                    <div class="education-heading">
+                        <h3>가천대학교 <span class="university-en" lang="en">Gachon University</span></h3>
+                        <p class="period">2019.03 – 2025.02</p>
+                    </div>
+                    <p class="detail">컴퓨터공학 학사</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="content-section" id="research" aria-labelledby="research-title">
+            <h2 id="research-title">Research</h2>
+            <div>
+                <!-- NOSLab 목록의 1저자 논문 및 학술대회 발표 7건과, 2저자로 참여해 수상한 eBPF 논문 1건을 수록합니다. -->
+                <!-- 출처: https://noslab.github.io/pages/publications/full.html -->
+                <ul class="research-list">
+                    <li lang="en">
+                        <h3><a class="paper-link" href="https://ieeexplore.ieee.org/document/11500491" target="_blank" rel="noopener noreferrer"><span class="paper-name">PoZS:</span> An Intelligent Resource Management and Data Placement Scheme for Next-generation Mobile NAND Solution</a></h3>
+                        <p class="publication-meta">IEEE Transactions on Consumer Electronics · 2026.08</p>
+                    </li>
+                    <li lang="ko">
+                        <h3>FDP SSD 환경에서 사용자 데이터 분류 정책에 따른 성능 및 WAF 분석</h3>
+                        <p class="publication-meta">한국컴퓨터종합학술대회 (KCC) · 2026.06</p>
+                    </li>
+                    <li lang="ko">
+                        <h3>eBPF를 활용한 Linux 커널 I/O 스택의 계층별 지연 시간 분석</h3>
+                        <p class="publication-meta">제33회 한국반도체학술대회 (KCS) · 2026.01 · 2저자 · <span class="publication-award">분과별 우수논문상</span></p>
+                    </li>
+                    <li lang="ko">
+                        <h3>TLC 낸드 플래시 메모리의 특성을 활용한 ZNS SSD 성능 최적화 기술</h3>
+                        <p class="publication-meta">한국컴퓨터종합학술대회 (KCC) · 2025.07 · <span class="publication-award">우수발표논문상</span></p>
+                    </li>
+                    <li lang="en">
+                        <h3><a class="paper-link" href="https://www.mdpi.com/2076-3417/14/21/9717" target="_blank" rel="noopener noreferrer"><span class="paper-name">ReZNS:</span> Energy and Performance-optimal Mapping Mechanism for ZNS SSD</a></h3>
+                        <p class="publication-meta">Applied Sciences · 2024.10</p>
+                    </li>
+                    <li lang="ko">
+                        <h3><a class="paper-link" href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12007516" target="_blank" rel="noopener noreferrer">ZNS SSD의 수명 향상을 위한 스페어 존 기법</a></h3>
+                        <p class="publication-meta">정보과학회 컴퓨팅의 실제 논문지 (KTCP) · 2024.12</p>
+                    </li>
+                    <li lang="ko">
+                        <h3>스페어 존을 활용한 ZNS SSD의 수명 및 성능 향상</h3>
+                        <p class="publication-meta">한국컴퓨터종합학술대회 (KCC) · 2024.06 · <span class="publication-award">학부생부문 우수논문상</span></p>
+                    </li>
+                    <li lang="ko">
+                        <h3>입출력 요청 인터페이스 분석</h3>
+                        <p class="publication-meta">제31회 한국반도체학술대회 (KCS) · 2024.01</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section" id="skills" aria-labelledby="skills-title">
+            <h2 id="skills-title">Skills</h2>
+            <div>
+                <div class="skill-group">
+                    <span class="skill-label">Languages</span>
+                    <ul class="skills" aria-label="프로그래밍 언어"><li>C</li><li>C++</li><li>Python</li><li>Shell Script</li></ul>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-label">Tools</span>
+                    <ul class="skills" aria-label="도구"><li>Git</li><li>Docker</li></ul>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 py-8 mt-auto text-center text-slate-500 text-sm">
-        &copy; lcy0515
+    <footer class="container site-footer">
+        <div class="footer-inner"><span>&copy; ChanYong Lee</span><a href="#home">맨 위로 ↑</a></div>
     </footer>
 </body>
 </html>
