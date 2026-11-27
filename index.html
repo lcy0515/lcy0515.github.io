@@ -45,6 +45,8 @@
         .introduction { margin: 0; max-width: 620px; color: var(--muted); word-break: keep-all; }
         .profile-photo { display: block; width: 164px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
         .contact-links { display: flex; flex-direction: column; gap: 4px; margin-top: 20px; font-size: 14px; }
+        .contact-item { display: flex; align-items: center; gap: 8px; }
+        .contact-item svg { width: 17px; height: 17px; flex-shrink: 0; }
         .content-section { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 40px; padding: 34px 0; border-top: 1px solid var(--line); }
         h2 { margin: 0; font-size: 19px; line-height: 1.65; letter-spacing: -.3px; }
         h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.65; }
@@ -135,9 +137,20 @@
                         SSD의 내부 구조와 데이터 배치, Linux I/O 스택의 성능을 분석하고 개선하는 데 관심이 있습니다.
                     </p>
                     <div class="contact-links">
-                        <span>github.com/lcy0515</span>
-                        <span>chanyong05151@gmail.com</span>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 .75a11.25 11.25 0 0 0-3.558 21.924c.563.104.77-.244.77-.542 0-.267-.01-.974-.015-1.912-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.699.078-.685.078-.685 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.637 1.224 3.28.936.103-.727.393-1.224.715-1.505-2.499-.284-5.126-1.25-5.126-5.564 0-1.23.44-2.233 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.302 3.094 1.153a10.78 10.78 0 0 1 5.626 0c2.148-1.455 3.091-1.154 3.091-1.154.615 1.55.228 2.696.112 2.98.722.788 1.158 1.792 1.158 3.02 0 4.326-2.63 5.277-5.136 5.556.404.35.765 1.043.765 2.1 0 1.516-.014 2.74-.014 3.111 0 .3.203.651.774.54A11.25 11.25 0 0 0 12 .75Z"/>
+                            </svg>
+                            <span>GitHub: github.com/lcy0515</span>
                     </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="m3 6 9 7 9-7"/>
+                        </svg>
+                        <span>Email: chanyong05151@gmail.com</span>
+                    </div>
+                </div>
                 </div>
             </div>
             <img class="profile-photo" src="profile.jpg" alt="이찬용 프로필 사진" width="413" height="531" fetchpriority="high">
